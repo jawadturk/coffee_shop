@@ -84,7 +84,7 @@ public class ProductsController {
 	    }
 	  
 	  
-	  @RequestMapping(value = "/update", method = RequestMethod.DELETE)
+	  @RequestMapping(value = "/update", method = RequestMethod.PUT)
 	    public BaseResponse deleteProduct(@RequestBody Product product,Model model) {
 		  BaseResponse response = new BaseResponse();
 		  
