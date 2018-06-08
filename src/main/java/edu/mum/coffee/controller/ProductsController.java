@@ -39,10 +39,8 @@ public class ProductsController {
 	 @Autowired
 	 ProductService productService;
 	  
-	  
-
 	 @RequestMapping(value = "/save", method = RequestMethod.POST)
-	 public BaseResponse pay( @RequestBody Product product,Model model) {
+	 public BaseResponse pay( @RequestBody Product product) {
 	  BaseResponse response = new BaseResponse();
 	
 	   // Process the request
