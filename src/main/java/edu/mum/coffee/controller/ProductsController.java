@@ -40,11 +40,7 @@ public class ProductsController {
 	 ProductService productService;
 	  
 	  
-	  @RequestMapping(value = "/")
-		 public String mainMethod( Model model) {
-		  return "redirect:/all";
-		 }
-	  
+
 	 @RequestMapping(value = "/save", method = RequestMethod.POST)
 	 public BaseResponse pay( @RequestBody Product product,Model model) {
 	  BaseResponse response = new BaseResponse();
