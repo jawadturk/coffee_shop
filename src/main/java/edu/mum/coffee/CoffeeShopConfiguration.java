@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = "edu.mum.coffee")
 public class CoffeeShopConfiguration extends WebMvcConfigurerAdapter {
 	
-	@Bean(name="HelloWorld")
+	@Bean(name="configuration")
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
