@@ -47,7 +47,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--- start-rate---->
 
  <script src="<c:url value="/static/js/jstarbox.js" />"></script>
-	<link rel="stylesheet"  href="<c:url value='/static/css/jstarbox.css' />"  type="text/css" media="screen" charset="utf-8" />
+ <link rel="stylesheet"  href="<c:url value='/static/css/jstarbox.css' />"  type="text/css" media="screen" charset="utf-8" />
 		<script type="text/javascript">
 			jQuery(function() {
 			jQuery('.starbox').each(function() {
@@ -83,8 +83,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			</div>
 			<div class="head-t">
 				<ul class="card">
-					<li><a href="login.html" ><i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
-					<li><a href="register.html" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
+					<li><a href="<c:url value="/login" />"> <i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
+					<li><a href="<c:url value="register" />" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
 					
 				</ul>	
 			</div>
