@@ -1,4 +1,3 @@
-edu\mum\coffee\controller\HomeController.class
 edu\mum\coffee\CoffeShopApplication.class
 edu\mum\coffee\config\WebSecurityConfig.class
 edu\mum\coffee\service\ProductService.class

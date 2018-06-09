@@ -24,6 +24,10 @@ public class PersonService {
 		return personRepository.findByEmail(email);
 	}
 
+	public List<Person> getAll() {
+		return personRepository.findAll();
+	}
+
 	public Person findById(Long id) {
 		return personRepository.findOne(id);
 	}

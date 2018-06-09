@@ -47,6 +47,18 @@ public class HomeController {
 		return "register";
 	}
 	
+	
+	 @RequestMapping(value = "/login", method = RequestMethod.POST)
+	 public String login( 
+			 @RequestParam("email") String email,
+			 @RequestParam("password") String password
+			
+			 ) {
+		 
+		
+	  return "login";
+	 }
+	
 	 @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	 public String saveUser( @RequestParam("firstName") String firstName,
 			 @RequestParam("lastName") String lastName,
