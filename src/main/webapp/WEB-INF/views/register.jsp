@@ -42,7 +42,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<div class="main-agileits">
 				<div class="form-w3agile form1">
 					<h3>Register</h3>
-					<form action="#" method="post">
+					<form action="saveUser" method="post">
 						<div class="key">
 							<i class="fa fa-user" aria-hidden="true"></i>
 							<input  type="text" value="Firstname" name="firstName" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Firstname';}" required="">
@@ -86,14 +86,16 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						</div>
 						<div class="key">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<input  type="text" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+							<input  type="text" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 							<div class="clearfix"></div>
 						</div>
 						<div class="key">
 							<i class="fa fa-lock" aria-hidden="true"></i>
-							<input  type="password" value="Password" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+							<input  type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
 							<div class="clearfix"></div>
 						</div>
+					
+						<input type="hidden" name="enable"  value="true" />
 					
 						<input type="submit" value="Submit">
 					</form>
