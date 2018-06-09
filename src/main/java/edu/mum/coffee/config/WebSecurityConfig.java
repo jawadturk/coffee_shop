@@ -15,19 +15,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 	    http.csrf().disable();
 
-        http
-            .authorizeRequests()
-                .antMatchers("/", "/home", "/index","/products/*","/persons/*","/orders/*")
-                .permitAll()
-                .anyRequest().authenticated()
-                .and()
-            .formLogin()
-            	.permitAll()
-            	.and()
-            .logout()
-            	.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-            	.logoutSuccessUrl("/")
-                .permitAll();
+//        http
+//            .authorizeRequests()
+//                .antMatchers("/", "/home", "/index","/products/*","/persons/*","/orders/*")
+//                .permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//            .formLogin()
+//            	.permitAll()
+//            	.and()
+//            .logout()
+//            	.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//            	.logoutSuccessUrl("/")
+//                .permitAll();
     }
 
 	@Autowired

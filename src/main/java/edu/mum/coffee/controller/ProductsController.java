@@ -53,7 +53,7 @@ public class ProductsController {
 	 }
 	
 	 @RequestMapping(value = "/all", method = RequestMethod.GET,headers="Accept=application/json")
-	 public List<Product> getCountries()
+	 public List<Product> getProducts()
 	 {
 	  List listOfProducts = new ArrayList<Product>();
 	  listOfProducts=productService.getAllProduct();
