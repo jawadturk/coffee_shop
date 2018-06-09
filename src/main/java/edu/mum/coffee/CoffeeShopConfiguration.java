@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "edu.mum.coffee")
-public class HelloWorldConfiguration extends WebMvcConfigurerAdapter {
+public class CoffeeShopConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Bean(name="HelloWorld")
 	public ViewResolver viewResolver() {
