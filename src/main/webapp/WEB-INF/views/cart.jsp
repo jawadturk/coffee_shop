@@ -95,8 +95,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    	 	<div class="dis-total">
    	 		<h1>Total $${totalPrice}</h1>
    	 		<div class="tot-btn">
-   	 			<a class="shop" href="#">Back to Shop</a>
-   	 			<a class="check" href="#">Continue to Checkout</a>
+   	 			<a class="shop" href="<c:url value="home" />">Back to Shop</a>
+   	 			<a class="check" href="href="<c:url value="/checkOut" />"">Continue to Checkout</a>
    	 		</div>
    	 	</div>
    	   <div class="clear"> </div>

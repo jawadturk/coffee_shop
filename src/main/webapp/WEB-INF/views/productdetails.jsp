@@ -74,6 +74,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						</div>
          
 						
+						<input type="hidden" name="id"  value="${product.id}" />
 					
 						<input type="hidden" name="enable"  value="true" />
 					

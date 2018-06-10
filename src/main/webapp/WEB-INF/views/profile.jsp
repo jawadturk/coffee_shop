@@ -59,7 +59,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<div class="main-box clearfix">
 									<div class="profile-header">
 										<h3><span>User info</span></h3>
-										<a href="http://superhero.phoonio.com/user-profile.html#" class="btn btn-primary edit-profile">
+										<a href="<c:url value="editProfile" />" class="btn btn-primary edit-profile">
 											<i class="fa fa-pencil-square fa-lg"></i> 
 											Edit profile
 										</a>

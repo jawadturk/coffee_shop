@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,7 +56,10 @@ public class HomeController {
 	public String register() {
 		return "register";
 	}
-	
+	@GetMapping({"/editProfile"})
+	public String editProfile() {
+		return "editProfile";
+	}
 	@GetMapping({"/profile"})
 	public String openProfile(HttpServletRequest request,Principal principal) {
 		
@@ -129,4 +133,11 @@ public class HomeController {
  
         return "accessDenied";
     }
+	
+	@RequestMapping(value="editProfile/{id}", method=RequestMethod.POST)
+	public String updateProfile(Person person, @PathVariable int id) {
+		personService.savePerson(person);
+		return "redirect:/profile";
+	}
+	
 }
