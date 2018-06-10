@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+<title>Add new user</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -41,7 +41,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<div class="login">
 		<div class="main-agileits">
 				<div class="form-w3agile form1">
-					<h3>Register</h3>
+					<h3>Add user</h3>
 					<form action="saveUser" method="post">
 						<div class="key">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -97,7 +97,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					
 						<input type="hidden" name="enable"  value="true" />
 					
-						<input type="submit" value="Submit">
+						<input type="submit" value="Add user">
 					</form>
 				</div>
 				

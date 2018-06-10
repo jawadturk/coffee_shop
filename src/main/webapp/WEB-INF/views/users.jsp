@@ -39,7 +39,7 @@
 							<h1 class="pull-left">Users</h1>
 							
 							<div class="pull-right top-page-ui">
-								<a href="http://superhero.phoonio.com/users.html#" class="btn btn-primary pull-right">
+								<a href="<c:url value="adduser" />" class="btn btn-primary pull-right">
 									<i class="fa fa-plus-circle fa-lg"></i> Add user
 								</a>
 							</div>
