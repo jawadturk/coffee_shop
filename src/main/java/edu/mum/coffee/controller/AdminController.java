@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import edu.mum.coffee.domain.Address;
 import edu.mum.coffee.domain.Person;
 import edu.mum.coffee.domain.Product;
+import edu.mum.coffee.domain.ProductType;
 import edu.mum.coffee.service.PersonService;
 import edu.mum.coffee.service.ProductService;
 import edu.mum.coffee.utils.BaseResponse;
@@ -84,6 +85,11 @@ public class AdminController {
 	  return "redirect:/admin/users";
 	 }
 	 
+	 @GetMapping({"/admin/addproduct"})
+		public String addProduct() {
+			return "addproduct";
+		}
+	 
 	 @GetMapping({"/admin/products"})
 		public String getProducts(HttpServletRequest request) {
 			
@@ -93,6 +99,27 @@ public class AdminController {
 			return "products";
 			
 		}
+	 
+	 @RequestMapping(value = "/admin/saveProduct", method = RequestMethod.POST)
+	 public String saveProduct( @RequestParam("productName") String productName,
+			 @RequestParam("description") String description,
+			 @RequestParam("price") String price,
+			 @RequestParam("productType") ProductType productType
+			 ) {
+		 
+		
+		 
+		 Product product = new Product();
+		product.setProductType(productType);
+		product.setProductName(productName);
+		product.setDescription(description);
+		product.setPrice(Double.parseDouble(price));
+		 
+	   // Process the request
+	  productService.save(product);
+	  return "redirect:/admin/products";
+	 }
+	 
 	 
 		@RequestMapping(value="admin/products/{id}", method=RequestMethod.GET)
 		public String get(@PathVariable int productId, Model model) {

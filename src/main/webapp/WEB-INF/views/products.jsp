@@ -39,7 +39,7 @@
 							<h1 class="pull-left">Products</h1>
 							
 							<div class="pull-right top-page-ui">
-								<a href="<c:url value="adduser" />" class="btn btn-primary pull-right">
+								<a href="<c:url value="addproduct" />" class="btn btn-primary pull-right">
 									<i class="fa fa-plus-circle fa-lg"></i> Add Product
 								</a>
 							</div>
