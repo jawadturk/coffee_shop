@@ -110,7 +110,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<li class=" active"><a href="index.html" class="hyper "><span>Home</span></a></li>	
 							
 	
-							<li><a href="codes.html" class="hyper"> <span>Profile</span></a></li>
+							<li><a href="<c:url value="profile" />"  class="hyper"> <span>Profile</span></a></li>
 						</ul>
 					</div>
 					</nav>

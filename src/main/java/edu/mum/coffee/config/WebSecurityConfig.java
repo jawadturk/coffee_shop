@@ -24,9 +24,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 // The pages does not require login
         http.authorizeRequests().antMatchers("/","/home", "/login","/index","/register", "/logout","/products/*","/persons/*","/orders/*").permitAll();
 	 // For ADMIN only.
-        http.authorizeRequests().antMatchers("/admin").access("hasRole('ADMIN')");
+        http.authorizeRequests().antMatchers("/admin").hasAuthority("ADMIN");
         // For User only.
-        http.authorizeRequests().antMatchers("/profile").access("hasRole('USER')");
+        http.authorizeRequests().antMatchers("/profile").hasAnyAuthority("ADMIN", "USER");
 	      
       // When the user has logged in as XX.
       // But access a page that requires role YY,

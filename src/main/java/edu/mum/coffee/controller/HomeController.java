@@ -56,7 +56,19 @@ public class HomeController {
 		return "register";
 	}
 	
-	
+	@GetMapping({"/profile"})
+	public String openProfile(HttpServletRequest request,Principal principal) {
+		
+		// After user login successfully.
+        String userName = principal.getName();
+ 
+        System.out.println("User Name: " + userName);
+ 
+        Person loginedUser = personService.findByEmail(userName).get(0);
+		request.getSession().setAttribute("profile", loginedUser);
+
+		return "profile";
+	}
 	
 	
 	 @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
@@ -108,8 +120,9 @@ public class HomeController {
  
             model.addAttribute("userInfo", userInfo);
  
-            String message = "Hi " + principal.getName() //
+            String message = "Hi " + principal.getName()+loginedUser.getAuthorities() //
                     + "<br> You do not have permission to access this page!";
+            System.out.println(message);
             model.addAttribute("message", message);
  
         }
