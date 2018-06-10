@@ -85,6 +85,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<ul class="card">
 					<li><a href="<c:url value="/login" />"> <i class="fa fa-user" aria-hidden="true"></i>Login</a></li>
 					<li><a href="<c:url value="register" />" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
+					<li><a href="<c:url value="logout" />" ><i class="fa fa-power-off" aria-hidden="true"></i>Logout</a></li>
 					
 				</ul>	
 			</div>
