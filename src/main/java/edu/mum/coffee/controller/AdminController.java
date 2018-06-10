@@ -121,15 +121,22 @@ public class AdminController {
 	 }
 	 
 	 
-		@RequestMapping(value="admin/products/{id}", method=RequestMethod.GET)
+		@RequestMapping(value="admin/products/{productId}", method=RequestMethod.GET)
 		public String get(@PathVariable int productId, Model model) {
 			model.addAttribute("product", productService.getProduct(productId));
-			return "productDetails";
+			return "productdetails";
 		}
 		
 		@RequestMapping(value="admin/products/{id}", method=RequestMethod.POST)
 		public String update(Product product, @PathVariable int id) {
 			productService.save(product);
+			return "redirect:/admin/products";
+		}
+		
+		@RequestMapping(value="admin/products/delete", method=RequestMethod.POST)
+		public String delete(int productId) {
+//			System.out.print(productId);
+//			productService.delete(productId);
 			return "redirect:/admin/products";
 		}
 	
