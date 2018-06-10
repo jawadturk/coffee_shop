@@ -35,9 +35,9 @@
 				<div class="row" style="opacity: 1; transform: translateY(0px);">
 					<div class="col-lg-12">
 						
-						<div onclick="location.href='<c:url value="admin/users" />';"  class="row">
+						<div   class="row">
 							<div class="col-lg-4 col-sm-6 col-xs-12">
-								<div class="main-box infographic-box">
+								<div onclick="location.href='<c:url value="admin/users" />';" class="main-box infographic-box">
 									<i class="fa fa-user red"></i>
 									<span class="value">Users</span>
 								</div>
@@ -48,8 +48,8 @@
 									<span class="value">Orders</span>
 								</div>
 							</div>
-							<div class="col-lg-4 col-sm-6 col-xs-12">
-								<div class="main-box infographic-box">
+							<div  class="col-lg-4 col-sm-6 col-xs-12">
+								<div onclick="location.href='<c:url value="admin/products" />';" class="main-box infographic-box">
 									<i class="fa fa-money green"></i>
 									<span class="value">Products</span>
 								</div>

@@ -7,11 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import edu.mum.coffee.domain.Address;
 import edu.mum.coffee.domain.Person;
@@ -80,5 +83,27 @@ public class AdminController {
 	  personService.savePerson(person);
 	  return "redirect:/admin/users";
 	 }
+	 
+	 @GetMapping({"/admin/products"})
+		public String getProducts(HttpServletRequest request) {
+			
+			List listOfProducts = new ArrayList<Product>();
+			listOfProducts=productService.getAllProduct();
+			request.getSession().setAttribute("products", listOfProducts);
+			return "products";
+			
+		}
+	 
+		@RequestMapping(value="admin/products/{id}", method=RequestMethod.GET)
+		public String get(@PathVariable int productId, Model model) {
+			model.addAttribute("product", productService.getProduct(productId));
+			return "productDetails";
+		}
+		
+		@RequestMapping(value="admin/products/{id}", method=RequestMethod.POST)
+		public String update(Product product, @PathVariable int id) {
+			productService.save(product);
+			return "redirect:/admin/products";
+		}
 	
 }
