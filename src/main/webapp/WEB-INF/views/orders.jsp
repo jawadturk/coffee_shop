@@ -9,7 +9,7 @@
     
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>users</title>
+	<title>Orders</title>
 	
     <!-- bootstrap -->
     <link href="<c:url value='/static/css/bootstrap.css' />"   rel='stylesheet' type='text/css' />
@@ -34,34 +34,57 @@
 			<div class="col-md-12" id="content-wrapper">
 				<div class="row" style="opacity: 1; transform: translateY(0px);">
 					<div class="col-lg-12">
-						
-						<div   class="row">
-							<div class="col-lg-4 col-sm-6 col-xs-12">
-								<div onclick="location.href='<c:url value="admin/users" />';" class="main-box infographic-box">
-									<i class="fa fa-user red"></i>
-									<span class="value">Users</span>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6 col-xs-12">
-								<div  onclick="location.href='<c:url value="admin/orders" />';" class="main-box infographic-box">
-									<i class="fa fa-shopping-cart emerald"></i>
-									<span class="value">Orders</span>
-								</div>
-							</div>
-							<div  class="col-lg-4 col-sm-6 col-xs-12">
-								<div onclick="location.href='<c:url value="admin/products" />';" class="main-box infographic-box">
-									<i class="fa fa-money green"></i>
-									<span class="value">Products</span>
-								</div>
-							</div>
+					
+						<div class="clearfix">
+							<h1 class="pull-left">Orders</h1>
+							
 							
 						</div>
 						
-						
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="main-box clearfix">
+									<div class="table-responsive">
+										<table class="table user-list">
+											<thead>
+												<tr>
+													<th><span>Order #</span></th>
+													<th><span>Customer Name</span></th>
+													<th><span>Date</span></th>
+												
+												</tr>
+											</thead>
+											<tbody>
+											
+											<c:forEach items="${orders}" var="order" varStatus="status">
+                      						 	<tr>
+													<td>
+														
+														${order.id} 
+														
+													</td>
+													<td>
+														${order.person.firstName} ${order.person.lastName}
+													</td>
+												
+													<td>
+														${order.date}
+													</td>
+													
+												</tr>
+               								</c:forEach>
+											
+											
+		
+											</tbody>
+										</table>
+									</div>
+									
+								</div>
+							</div>
+						</div>
 					
-						
-						
-						
+					
 					</div>
 				</div>
 			</div>
@@ -70,9 +93,9 @@
 
 	
 	
-</body>
+	
 
-</html>
+</body></html>
 
 
 

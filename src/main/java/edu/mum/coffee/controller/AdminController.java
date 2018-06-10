@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import edu.mum.coffee.domain.Address;
+import edu.mum.coffee.domain.Order;
 import edu.mum.coffee.domain.Person;
 import edu.mum.coffee.domain.Product;
 import edu.mum.coffee.domain.ProductType;
+import edu.mum.coffee.service.OrderService;
 import edu.mum.coffee.service.PersonService;
 import edu.mum.coffee.service.ProductService;
 import edu.mum.coffee.utils.BaseResponse;
@@ -31,7 +33,8 @@ public class AdminController {
 	 ProductService productService;
 	 @Autowired
 	 PersonService personService;
-	 
+	 @Autowired
+	 OrderService orderService;
 
 
 	@GetMapping({"/admin"})
@@ -133,11 +136,29 @@ public class AdminController {
 			return "redirect:/admin/products";
 		}
 		
+//		@RequestMapping(value="admin/products/delete", method=RequestMethod.POST)
+//		public String deleteWithParam(@RequestParam("id") String id) {
+//			System.out.print(id);
+////			productService.delete(id);
+//			return "redirect:/admin/products";
+//		}
+//		
 		@RequestMapping(value="admin/products/delete", method=RequestMethod.POST)
 		public String delete(int id) {
 			System.out.print(id);
 			productService.delete(id);
 			return "redirect:/admin/products";
+		}
+		
+		
+		@GetMapping({"/admin/orders"})
+		public String getOrders(HttpServletRequest request) {
+			
+			List listOfOrders = new ArrayList<Order>();
+			listOfOrders=orderService.findAll();
+			request.getSession().setAttribute("orders", listOfOrders);
+			return "orders";
+			
 		}
 	
 }
