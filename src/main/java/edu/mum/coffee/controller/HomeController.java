@@ -42,6 +42,11 @@ public class HomeController {
 		return "login";
 	}
 	
+	@GetMapping({"/cart"})
+	public String openCart() {
+		return "cart";
+	}
+	
 	@GetMapping({"/register"})
 	public String register() {
 		return "register";
