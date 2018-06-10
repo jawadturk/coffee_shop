@@ -1,12 +1,16 @@
 package edu.mum.coffee.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,16 +57,7 @@ public class HomeController {
 	}
 	
 	
-	 @RequestMapping(value = "/login", method = RequestMethod.POST)
-	 public String login( 
-			 @RequestParam("email") String email,
-			 @RequestParam("password") String password
-			
-			 ) {
-		 
-		
-	  return "login";
-	 }
+	
 	
 	 @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	 public String saveUser( @RequestParam("firstName") String firstName,
@@ -90,6 +85,7 @@ public class HomeController {
 		 person.setFirstName(firstName);
 		 person.setLastName(lastName);
 		 person.setPhone(phone);
+		 person.setPassword(password);
 		 
 	   // Process the request
 	  personService.savePerson(person);
@@ -101,4 +97,23 @@ public class HomeController {
 	public String securePage() {
 		return "secure";
 	}
+	
+	@RequestMapping(value = "/403", method = RequestMethod.GET)
+    public String accessDenied(Model model, Principal principal) {
+ 
+        if (principal != null) {
+            User loginedUser = (User) ((Authentication) principal).getPrincipal();
+ 
+            String userInfo = loginedUser.getUsername();
+ 
+            model.addAttribute("userInfo", userInfo);
+ 
+            String message = "Hi " + principal.getName() //
+                    + "<br> You do not have permission to access this page!";
+            model.addAttribute("message", message);
+ 
+        }
+ 
+        return "accessDenied";
+    }
 }

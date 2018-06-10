@@ -8,30 +8,53 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import edu.mum.coffee.service.UserDetailsServiceImpl;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	  @Autowired
+	  private UserDetailsServiceImpl userDetailsService;
+	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
 	    http.csrf().disable();
 
-//        http
-//            .authorizeRequests()
-//                .antMatchers("/", "/home", "/index","/products/*","/persons/*","/orders/*")
-//                .permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//            .formLogin()
-//            	.permitAll()
-//            	.and()
-//            .logout()
-//            	.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//            	.logoutSuccessUrl("/")
-//                .permitAll();
+	 // The pages does not require login
+        http.authorizeRequests().antMatchers("/","/home", "/login","/index","/register", "/logout","/products/*","/persons/*","/orders/*").permitAll();
+	 // For ADMIN only.
+        http.authorizeRequests().antMatchers("/admin").access("hasRole('ADMIN')");
+        // For User only.
+        http.authorizeRequests().antMatchers("/profile").access("hasRole('USER')");
+	      
+      // When the user has logged in as XX.
+      // But access a page that requires role YY,
+      // AccessDeniedException will be thrown.
+       http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
+       
+       
+       // Config for Login Form
+       http.authorizeRequests().and().formLogin()//
+               // Submit URL of login page.
+               .loginProcessingUrl("/j_spring_security_check") // Submit URL
+               .loginPage("/login")//
+               .defaultSuccessUrl("/home")//
+               .failureUrl("/login")//
+               .usernameParameter("username")//
+               .passwordParameter("password")
+               // Config for Logout Page
+               .and()
+               .logout()
+               .logoutUrl("/logout")
+               .logoutSuccessUrl("/");
+       
+       
+//     
     }
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("super").password("pw").roles("ADMIN");
+		  auth.userDetailsService(userDetailsService);
 	}
 }

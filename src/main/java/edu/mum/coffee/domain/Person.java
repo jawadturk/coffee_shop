@@ -21,6 +21,8 @@ public class Person {
 	private Address address;
 	private String phone;
 	private boolean enable;
+	private String role="USER";
+	private String password;
 
 	public long getId() {
 		return id;
@@ -72,6 +74,22 @@ public class Person {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

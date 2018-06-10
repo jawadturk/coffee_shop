@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Big store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template| Home :: w3layouts</title>
+<title>Coffee shop store</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -110,8 +110,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<li class=" active"><a href="index.html" class="hyper "><span>Home</span></a></li>	
 							
 	
-							<li><a href="codes.html" class="hyper"> <span>Codes</span></a></li>
-							<li><a href="contact.html" class="hyper"><span>Contact Us</span></a></li>
+							<li><a href="codes.html" class="hyper"> <span>Profile</span></a></li>
 						</ul>
 					</div>
 					</nav>

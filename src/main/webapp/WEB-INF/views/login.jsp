@@ -10,7 +10,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Login</title>
 <!-- for-mobile-apps -->
@@ -33,14 +33,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 </head>
 <body>
 
-<!--login-->
 
 	<div class="login">
 	
 		<div class="main-agileits">
 				<div class="form-w3agile">
 					<h3>Login</h3>
-					<form action="#" method="post">
+					<form name='f' action="j_spring_security_check"  method="post">
 					<c:if test="${param.error != null}">
 								<div class="alert alert-danger">
 									<p>Invalid username and password.</p>
@@ -49,7 +48,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					
 						<div class="key">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<input  type="text" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+							<input  type="text" value="Email" name="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 							<div class="clearfix"></div>
 						</div>
 						<div class="key">
@@ -62,7 +61,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</div>
 				<div class="forg">
 					
-					<a href="register.html" class="forg-right">Register</a>
+					<a href="/register" class="forg-right">Register</a>
 				<div class="clearfix"></div>
 				</div>
 			</div>
