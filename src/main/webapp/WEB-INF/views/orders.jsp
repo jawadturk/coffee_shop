@@ -68,7 +68,7 @@
 													</td>
 												
 													<td>
-														${order.date}
+														${order.orderDate}
 													</td>
 													
 												</tr>

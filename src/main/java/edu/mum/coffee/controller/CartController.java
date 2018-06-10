@@ -1,6 +1,11 @@
 package edu.mum.coffee.controller;
 
+import java.security.Principal;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +22,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.mum.coffee.domain.Address;
 import edu.mum.coffee.domain.CartItem;
+import edu.mum.coffee.domain.Order;
+import edu.mum.coffee.domain.Orderline;
 import edu.mum.coffee.domain.Person;
 import edu.mum.coffee.domain.Product;
+import edu.mum.coffee.service.OrderService;
 import edu.mum.coffee.service.PersonService;
 import edu.mum.coffee.service.ProductService;
 import edu.mum.coffee.utils.BaseResponse;
@@ -29,6 +37,11 @@ public class CartController {
 	 @Autowired
 	 ProductService productService;
 	
+	 @Autowired
+	 OrderService orderService;
+	 
+	 @Autowired
+	 PersonService personService;
 	 
 	 @RequestMapping(value="/addToCart/{productId}",method=RequestMethod.POST)
 	public String addToCart(HttpServletRequest request,@PathVariable int productId) {
@@ -103,5 +116,46 @@ public class CartController {
 		        return "redirect:/cart";
 		}
 	
-	
+	 @RequestMapping(value="/checkOut",method=RequestMethod.GET)
+		public String checkOut(HttpServletRequest request,Principal principal) {
+			
+			 //get the session
+		     HttpSession session = request.getSession();
+		     //create list of cart items
+		     ArrayList<CartItem> cartItems = new ArrayList<CartItem>();
+		     
+		  // After user login successfully.
+		        String userName = principal.getName();
+		 
+		        System.out.println("User Name: " + userName);
+		 
+		        Person loginedUser = personService.findByEmail(userName).get(0);
+		     
+		   //store product information to session
+		        if (session.getAttribute("cart") != null) {
+		        	cartItems = (ArrayList<CartItem>) session.getAttribute("cart");
+
+		        	 Order order = new Order();
+		        	 order.setPerson(loginedUser);
+		        	 Date date = new Date();
+		        	 order.setOrderDate(date);
+		        	 for (int i = 0; i < cartItems.size(); i++) {
+		        		 Orderline orderLine = new Orderline();
+		        		 orderLine.setProduct(cartItems.get(i).getProduct());
+		        		 orderLine.setQuantity(cartItems.get(i).getQuantity());
+		        		 order.addOrderLine(orderLine);
+				     }  
+				     orderService.save(order);
+		        }
+
+		 
+		      
+		        
+		       
+
+		        //set session
+		        session.removeAttribute("cart");
+		        
+		        return "redirect:/home";
+		}
 }
