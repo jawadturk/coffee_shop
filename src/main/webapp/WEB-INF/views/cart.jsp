@@ -75,9 +75,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    	 	     	<td class="top-remove">
    	 	     		<h4>$${cartItem.product.price*cartItem.quantity}</h4>
    	 	     		<div class="close">
-   	 	     	      <h5>Remove</h5>
+   	 	     	      
    	 	     	      <form action="removeFromCart/${status.index}" method="post">
-						<button class="btn btn-danger my-cart-btn my-cart-b"  type="submit">Remove</button>
+						<button class="btn btn-danger my-cart-btn my-cart-b"  type="submit"><h5>Remove</h5></button>
 						</form>
    	 	            </div>
    	 	     	</td>

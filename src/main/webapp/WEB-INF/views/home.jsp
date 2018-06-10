@@ -115,7 +115,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						</ul>
 					</div>
 					</nav>
-					 <div class="cart" >
+					 <div onclick="location.href='<c:url value="/cart" />';"  class="cart" >
 					
 						<span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
 					</div>
