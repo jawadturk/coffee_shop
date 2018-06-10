@@ -134,9 +134,9 @@ public class AdminController {
 		}
 		
 		@RequestMapping(value="admin/products/delete", method=RequestMethod.POST)
-		public String delete(int productId) {
-//			System.out.print(productId);
-//			productService.delete(productId);
+		public String delete(int id) {
+			System.out.print(id);
+			productService.delete(id);
 			return "redirect:/admin/products";
 		}
 	

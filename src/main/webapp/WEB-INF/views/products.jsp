@@ -86,12 +86,15 @@
 																<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 															</span>
 														</a>
-														<a href="products/delete?productId=${product.id}" class="table-link danger">
+														<a href="products/delete?id=${product.id}" class="table-link danger">
 															<span class="fa-stack">
 																<i class="fa fa-square fa-stack-2x"></i>
 																<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
 															</span>
 														</a>
+														<form action="products/delete?id=${product.id}" method="post">
+															<button  type="submit">Delete</button>
+														</form>
 													</td>
 												</tr>
                								</c:forEach>
